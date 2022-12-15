@@ -3,10 +3,13 @@ import React, { useState, useMemo } from "react";
 
 function App() {
   const [text, setText] = useState("");
-  const isValid = useMemo(() => {
-    const num = parseInt(text, 10);
 
-    return !isNaN(num);
+  const isValid = useMemo(() => {
+    //const num = parseInt(text, 10);
+    const rgx = new RegExp("^[0-9]+$");
+
+    return rgx.test(text);
+    //return !isNaN(num);
   }, [text]);
 
   return (
